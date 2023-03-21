@@ -1,35 +1,35 @@
 package com.Project.hackernews.entity;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 public class Posts {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long Id;
-
     private  String title;
-
     private String url;
-
     private  String text;
+    private boolean showHn;
+    private boolean askHn;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private final List<Comments> commentsList = new ArrayList<Comments>();
 
-    public  Posts()
+    public Posts()
     {}
 
-    public Posts(long id, String title, String url, String text) {
-        Id = id;
+    public Posts(String title, String url, String text, boolean showHn, boolean askHn) {
         this.title = title;
         this.url = url;
         this.text = text;
+        this.showHn = showHn;
+        this.askHn = askHn;
     }
+
     public long getId() {
         return Id;
     }
@@ -60,5 +60,25 @@ public class Posts {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public boolean isShowHn() {
+        return showHn;
+    }
+
+    public void setShowHn(boolean showHn) {
+        this.showHn = showHn;
+    }
+
+    public boolean isAskHn() {
+        return askHn;
+    }
+
+    public void setAskHn(boolean askHn) {
+        this.askHn = askHn;
+    }
+
+    public List<Comments> getCommentsList() {
+        return commentsList;
     }
 }

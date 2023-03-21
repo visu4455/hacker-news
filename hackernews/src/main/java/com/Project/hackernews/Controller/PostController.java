@@ -24,13 +24,13 @@ public class PostController {
         return "redirect:/getPost";
     }
 
-//    @RequestMapping("/getPost")
-//    public String getData(Model model)
-//    {
-//        List<Posts> postsList=postService.getPostsData();
-//        model.addAttribute("allPosts",postsList);
-//        return "";
-//    }
+    @RequestMapping("/getPost")
+    public String getData(Model model)
+    {
+        List<Posts> postsList=postService.getPostsData();
+        model.addAttribute("allPosts",postsList);
+        return "";
+    }
 
     @RequestMapping("/pastPosts")
     public String geePastPosts(Model model)

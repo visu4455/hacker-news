@@ -1,4 +1,4 @@
-package com.Project.hackernews.Repo;
+package com.Project.hackernews.Dao;
 
 import com.Project.hackernews.entity.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;

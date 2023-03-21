@@ -1,7 +1,7 @@
 package com.Project.hackernews.service;
 
 
-import com.Project.hackernews.Repo.PostRepo;
+import com.Project.hackernews.Dao.PostRepo;
 import com.Project.hackernews.entity.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

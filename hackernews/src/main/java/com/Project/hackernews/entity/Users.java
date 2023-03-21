@@ -1,35 +1,33 @@
 package com.Project.hackernews.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
-public class User {
+@Table(name="users",uniqueConstraints=@UniqueConstraint(columnNames = "username"))
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String username;
     private Date createdAt;
     private String password;
 
-    public User() {
+    public Users() {
 
     }
-    public User(String username, Date createdAt, String password) {
+    public Users(String username, Date createdAt, String password) {
         this.username = username;
         this.createdAt = createdAt;
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
